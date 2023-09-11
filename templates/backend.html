@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ arg_url }} </title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        :root {
+            --ff-main:  'Times New Roman', 'Times', serif;
+            --ff-mono:  'Verdana', 'Geneva', 'Tahoma', sans-serif;
+            --ff-mono-seconds:  'Verdana', 'Geneva', 'Tahoma', sans-serif;
+            --fs-main: 26px;
+
+            --sz-min-width: 320px;
+            --sz-container-max-width: 100px;
+            --sz-container-max-width-seconds: 34px;
+            --sz-container-max-padding: 16px;
+            --sz-content-padding: 20px;
+            --sz-content-padding-seconds: 10px;
+
+            --cl-bkg-main: #1f1e1e;
+            --cl-bkg-cont: #2c2a2a;
+            --cl-bkg-cont-seconds: #352e2e;
+            --cl-text-main: #dfdedc;
+            --cl-text-accent: #d2af8c;
+            --cl-text-accent-seconds: #eb4d31;
+        }
+
+        html {
+            min-height: 100%;
+            min-width: var(--sz-min-width);
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            flex-grow: 1;
+
+            display: flex;
+            flex-flow: column nowrap;
+
+            font-family: var(--ff-main);
+            font-size: var(--fs-main);
+
+            background-color: var(--cl-bkg-main);
+            color: var(--cl-text-main);
+
+            user-select:contain;
+        }
+
+        main {
+            padding-top: 1rem;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        my_html_tag {
+            font-family: var(--ff-mono);
+            color: var(--cl-text-accent);
+            user-select: all;
+        }
+        my_html_tag_seconds {
+            font-family: var(--ff-mono-seconds);
+            color: var(--cl-text-accent-seconds);
+            max-width: 150px;
+            user-select: all;
+            border-radius: .5rem;
+
+        }
+
+        .container_1 {
+            margin:auto;
+            max-width: 50px;
+            padding: 0cm;
+            background-color: var(--cl-bkg-cont);
+            border-radius: .5rem;
+        }
+        .container_2 {
+            margin: 1 auto;
+            max-width: var(--sz-container-max-width);
+            padding: var(--sz-content-padding);
+            background-color: var(--cl-bkg-cont);
+            border-radius: .5rem;
+
+        }
+        .container_seconds {
+            border-radius: 50%;
+            /* margin: 1 auto; */
+            max-width: var(--sz-container-max-width-seconds);
+            padding: var(--sz-content-padding-seconds);
+            background-color: var(--cl-bkg-cont-seconds);
+            /* border-radius: .2rem; */
+        }
+        /* .container_3 {
+            margin: 1 auto;
+            max-width: var(--sz-container-max-width-seconds);
+            padding: var(--sz-content-padding);
+            background-color: var(--cl-bkg-cont);
+            border-radius: .5rem;
+        } */
+
+        .container_3 {
+            font-size: 14px;
+            margin: 1 auto;
+            max-width: max-content;
+            background-color: var(--cl-bkg-cont);
+            border-radius: .5rem;
+        }
+        .container_4 {
+            font-size: 20px;
+            font-family: Arial, Helvetica, fantasy;
+            margin: 1 auto;
+            /* max-width: 600px; */
+            max-width: max-content;
+            /* padding: 100px; */
+            background-color: var(--cl-bkg-cont);
+            border-radius: .5rem;
+        }
+        .button {
+            border-color:#333;
+            background-color: #34b164; /* Green */
+            border: 1px solid rgb(198, 240, 11);
+            color: white;
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5cqmax;
+            /* box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5); */
+        }
+        /* .button:not([disabled]):focus {
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        } */
+
+
+        .button:active {
+            border-color:#333;
+            background-color: #3a6fe2; /* Green */
+            border: 1px solid rgb(27, 218, 243);
+            color: rgb(58, 235, 14);
+            padding: 10px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5cqmax;
+            /* box-shadow: 0 0 .25rem rgba(184, 73, 73, 0.5), -.125rem -.125rem 1rem rgba(190, 16, 39, 0.5), .125rem .125rem 1rem rgba(193, 21, 236, 0.5); */
+        }
+        /* Container seconds */
+        main .container_seconds{
+        width:34px;
+        transform:translatex(147px) translatey(-68px);
+        }
+
+        @media (max-width:768px){
+
+        /* Button */
+        main .button{
+        transform:translatex(0px) translatey(-54px);
+        }
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container_3">
+            <p id="p_2"> Verifying code <br>
+        </div>
+        <div class="container_4">
+            {{ arg_url }}: </p>
+        </div>
+        <div class="container_2">
+            <p id="p1"><my_html_tag id="_content"></my_html_tag></p>
+        </div>
+        <div class="container_seconds">
+            <p id="p2"><my_html_tag_seconds id="_seconds"></my_html_tag_seconds></p>
+        </div>
+            <button class="button" onclick="copyToClipboard('#p1')">
+                copy
+            </button>
+    </main>
+
+
+    <script>
+        function copyToClipboard(element) {
+        document.execCommand("copy");
+
+        var text = document.querySelector(element).textContent;
+
+        var output = document.getElementById("output");
+        navigator.clipboard.writeText(text).then(function() {
+            output.textContent = "worked";
+        }, function() {
+            output.textContent = "didn't work";
+        });
+        }
+    </script>
+
+
+    <script>
+        function main() {
+            const seconds = document.getElementById('_seconds');
+            const content = document.getElementById('_content');
+
+            async function fetchData() {
+                const resp = await fetch('{{ arg_url }}');
+                const data = await resp.json();
+                console.log(data);
+                content.innerHTML = data.totp_code;
+                seconds.innerHTML = data.seconds;
+            }
+
+            window.setInterval(fetchData, 1000);
+            fetchData();
+        }
+
+        window.addEventListener('load', main);
+    </script>
+</body>
+</html>
+
